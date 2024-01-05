@@ -1,0 +1,778 @@
+E (1826) LOGGER: =============================================================================================
+E (1836) LOGGER: =============================================================================================
+E (1846) LOGGER: =============================================================================================
+E (1856) LOGGER: =============================================================================================
+E (1866) LOGGER: =============================================================================================
+E (1876) LOGGER: =============================================================================================
+E (1886) LOGGER: =============================================================================================
+E (1896) LOGGER: =============================================================================================
+E (1916) LOGGER: =============================================================================================
+E (1926) LOGGER: =============================================================================================
+E (1936) LOGGER: =============================================================================================
+E (1946) LOGGER: =============================================================================================
+E (1956) LOGGER: =============================================================================================
+E (1966) LOGGER: =============================================================================================
+E (1976) LOGGER: =============================================================================================
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x52 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x10 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x11 
+SPI_WRITE => TX_DATA[1]: 0x23 
+
+W (2056) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (2086) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+W (2106) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (2136) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+I (2146) NFC4_LIB: ./main/nfc4.c:1089 CNT: 1 tx_data: 0xbf
+SPI_WRITE => TX_DATA[0]: 0x17 
+SPI_WRITE => TX_DATA[1]: 0xbf 
+
+I (2156) NFC4_LIB: ./main/nfc4.c:1089 CNT: 2 tx_data: 0xf
+SPI_WRITE => TX_DATA[0]: 0x18 
+SPI_WRITE => TX_DATA[1]: 0xf 
+
+SPI_WRITE => TX_DATA[0]: 0x23 
+SPI_WRITE => TX_DATA[1]: 0x10 
+
+SPI_WRITE => TX_DATA[0]: 0x22 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x80 
+SPI_WRITE => TX_DATA[1]: 0x93 
+SPI_WRITE => TX_DATA[2]: 0x20 
+
+SPI_WRITE => TX_DATA[0]: 0xc5 
+
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (2196) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 1 
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x5a 
+SPI_READ => RX_DATA[1]: 0x8 
+SPI_READ => RX_DATA[2]: 0x40 
+SPI_READ => RX_DATA[3]: 0x0 
+SPI_READ => RX_DATA[4]: 0x0 
+
+I (2226) NFC4_LIB: rxBuff1=0x8  rxBuff2=0x40    rxBuff3=0x0     rxBuff4=0x0
+I (2236) NFC4_LIB: nfc4_check_for_received_interrupts() ./main/nfc4.c:1173 FINAL STATUS: 16392 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (2246) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x8
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (2266) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x4000
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4c 
+SPI_READ => RX_DATA[1]: 0x2d 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+E (2346) LOGGER: =============================================================================================
+E (2356) LOGGER: =============================================================================================
+E (2366) LOGGER: =============================================================================================
+E (2376) LOGGER: =============================================================================================
+E (2386) LOGGER: =============================================================================================
+E (2406) LOGGER: =============================================================================================
+E (2416) LOGGER: =============================================================================================
+E (2426) LOGGER: =============================================================================================
+E (2436) LOGGER: =============================================================================================
+E (2446) LOGGER: =============================================================================================
+E (2456) LOGGER: =============================================================================================
+E (2466) LOGGER: =============================================================================================
+E (2476) LOGGER: =============================================================================================
+E (2486) LOGGER: =============================================================================================
+E (2496) LOGGER: =============================================================================================
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_WRITE => TX_DATA[0]: 0x3 
+SPI_WRITE => TX_DATA[1]: 0x8 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x52 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x10 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x11 
+SPI_WRITE => TX_DATA[1]: 0x23 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+W (2606) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (2626) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x87
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+I (2646) NFC4_LIB: ./main/nfc4.c:1089 CNT: 1 tx_data: 0xbf
+SPI_WRITE => TX_DATA[0]: 0x17 
+SPI_WRITE => TX_DATA[1]: 0xbf 
+
+I (2656) NFC4_LIB: ./main/nfc4.c:1089 CNT: 2 tx_data: 0xf
+SPI_WRITE => TX_DATA[0]: 0x18 
+SPI_WRITE => TX_DATA[1]: 0xf 
+
+W (2666) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (2696) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+SPI_WRITE => TX_DATA[0]: 0x23 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xc7 
+
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 1 
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x5a 
+SPI_READ => RX_DATA[1]: 0x8 
+SPI_READ => RX_DATA[2]: 0x40 
+SPI_READ => RX_DATA[3]: 0x0 
+SPI_READ => RX_DATA[4]: 0x0 
+
+I (2736) NFC4_LIB: rxBuff1=0x8  rxBuff2=0x40    rxBuff3=0x0     rxBuff4=0x0
+I (2746) NFC4_LIB: nfc4_check_for_received_interrupts() ./main/nfc4.c:1173 FINAL STATUS: 16392 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (2756) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x8
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (2776) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x4000
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4c 
+SPI_READ => RX_DATA[1]: 0x2d 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+E (2846) LOGGER: =============================================================================================
+E (2856) LOGGER: =============================================================================================
+E (2866) LOGGER: =============================================================================================
+E (2876) LOGGER: =============================================================================================
+E (2886) LOGGER: =============================================================================================
+E (2896) LOGGER: =============================================================================================
+E (2906) LOGGER: =============================================================================================
+E (2916) LOGGER: =============================================================================================
+E (2926) LOGGER: =============================================================================================
+E (2936) LOGGER: =============================================================================================
+E (2946) LOGGER: =============================================================================================
+E (2956) LOGGER: =============================================================================================
+E (2966) LOGGER: =============================================================================================
+E (2976) LOGGER: =============================================================================================
+E (2996) LOGGER: =============================================================================================
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x52 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x10 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x11 
+SPI_WRITE => TX_DATA[1]: 0x23 
+
+W (3076) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (3106) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+W (3126) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (3156) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+I (3166) NFC4_LIB: ./main/nfc4.c:1089 CNT: 1 tx_data: 0xbf
+SPI_WRITE => TX_DATA[0]: 0x17 
+SPI_WRITE => TX_DATA[1]: 0xbf 
+
+I (3176) NFC4_LIB: ./main/nfc4.c:1089 CNT: 2 tx_data: 0xf
+SPI_WRITE => TX_DATA[0]: 0x18 
+SPI_WRITE => TX_DATA[1]: 0xf 
+
+SPI_WRITE => TX_DATA[0]: 0x23 
+SPI_WRITE => TX_DATA[1]: 0x10 
+
+SPI_WRITE => TX_DATA[0]: 0x22 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x80 
+SPI_WRITE => TX_DATA[1]: 0x93 
+SPI_WRITE => TX_DATA[2]: 0x20 
+
+SPI_WRITE => TX_DATA[0]: 0xc5 
+
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (3216) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 1 
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x5a 
+SPI_READ => RX_DATA[1]: 0x8 
+SPI_READ => RX_DATA[2]: 0x40 
+SPI_READ => RX_DATA[3]: 0x0 
+SPI_READ => RX_DATA[4]: 0x0 
+
+I (3246) NFC4_LIB: rxBuff1=0x8  rxBuff2=0x40    rxBuff3=0x0     rxBuff4=0x0
+I (3256) NFC4_LIB: nfc4_check_for_received_interrupts() ./main/nfc4.c:1173 FINAL STATUS: 16392 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (3266) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x8
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (3276) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x4000
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4c 
+SPI_READ => RX_DATA[1]: 0x2d 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+E (3366) LOGGER: =============================================================================================
+E (3376) LOGGER: =============================================================================================
+E (3386) LOGGER: =============================================================================================
+E (3396) LOGGER: =============================================================================================
+E (3406) LOGGER: =============================================================================================
+E (3416) LOGGER: =============================================================================================
+E (3426) LOGGER: =============================================================================================
+E (3436) LOGGER: =============================================================================================
+E (3446) LOGGER: =============================================================================================
+E (3456) LOGGER: =============================================================================================
+E (3466) LOGGER: =============================================================================================
+E (3486) LOGGER: =============================================================================================
+E (3496) LOGGER: =============================================================================================
+E (3506) LOGGER: =============================================================================================
+E (3516) LOGGER: =============================================================================================
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_WRITE => TX_DATA[0]: 0x3 
+SPI_WRITE => TX_DATA[1]: 0x8 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x52 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x10 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x11 
+SPI_WRITE => TX_DATA[1]: 0x23 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+W (3616) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (3646) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x87
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+I (3656) NFC4_LIB: ./main/nfc4.c:1089 CNT: 1 tx_data: 0xbf
+SPI_WRITE => TX_DATA[0]: 0x17 
+SPI_WRITE => TX_DATA[1]: 0xbf 
+
+I (3666) NFC4_LIB: ./main/nfc4.c:1089 CNT: 2 tx_data: 0xf
+SPI_WRITE => TX_DATA[0]: 0x18 
+SPI_WRITE => TX_DATA[1]: 0xf 
+
+W (3686) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (3706) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+SPI_WRITE => TX_DATA[0]: 0x23 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xc7 
+
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 1 
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x5a 
+SPI_READ => RX_DATA[1]: 0x8 
+SPI_READ => RX_DATA[2]: 0x40 
+SPI_READ => RX_DATA[3]: 0x0 
+SPI_READ => RX_DATA[4]: 0x0 
+
+I (3756) NFC4_LIB: rxBuff1=0x8  rxBuff2=0x40    rxBuff3=0x0     rxBuff4=0x0
+I (3766) NFC4_LIB: nfc4_check_for_received_interrupts() ./main/nfc4.c:1173 FINAL STATUS: 16392 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (3776) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x8
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (3786) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x4000
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4c 
+SPI_READ => RX_DATA[1]: 0x2d 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+E (3856) LOGGER: =============================================================================================
+E (3866) LOGGER: =============================================================================================
+E (3876) LOGGER: =============================================================================================
+E (3886) LOGGER: =============================================================================================
+E (3896) LOGGER: =============================================================================================
+E (3916) LOGGER: =============================================================================================
+E (3926) LOGGER: =============================================================================================
+E (3936) LOGGER: =============================================================================================
+E (3946) LOGGER: =============================================================================================
+E (3956) LOGGER: =============================================================================================
+E (3966) LOGGER: =============================================================================================
+E (3976) LOGGER: =============================================================================================
+E (3986) LOGGER: =============================================================================================
+E (3996) LOGGER: =============================================================================================
+E (4006) LOGGER: =============================================================================================
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x42 
+SPI_READ => RX_DATA[1]: 0xcb 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x52 
+SPI_READ => RX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x10 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x11 
+SPI_WRITE => TX_DATA[1]: 0x23 
+
+W (4096) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x87 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (4116) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+W (4146) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+I (4166) NFC4_LIB: ./main/nfc4.c:1089 CNT: 0 tx_data: 0x83
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x83 
+
+I (4176) NFC4_LIB: ./main/nfc4.c:1089 CNT: 1 tx_data: 0xbf
+SPI_WRITE => TX_DATA[0]: 0x17 
+SPI_WRITE => TX_DATA[1]: 0xbf 
+
+I (4196) NFC4_LIB: ./main/nfc4.c:1089 CNT: 2 tx_data: 0xf
+SPI_WRITE => TX_DATA[0]: 0x18 
+SPI_WRITE => TX_DATA[1]: 0xf 
+
+SPI_WRITE => TX_DATA[0]: 0x23 
+SPI_WRITE => TX_DATA[1]: 0x10 
+
+SPI_WRITE => TX_DATA[0]: 0x22 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_WRITE => TX_DATA[0]: 0x80 
+SPI_WRITE => TX_DATA[1]: 0x93 
+SPI_WRITE => TX_DATA[2]: 0x20 
+
+SPI_WRITE => TX_DATA[0]: 0xc5 
+
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (4226) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x0
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 1 
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x5a 
+SPI_READ => RX_DATA[1]: 0x8 
+SPI_READ => RX_DATA[2]: 0x40 
+SPI_READ => RX_DATA[3]: 0x0 
+SPI_READ => RX_DATA[4]: 0x0 
+
+I (4266) NFC4_LIB: rxBuff1=0x8  rxBuff2=0x40    rxBuff3=0x0     rxBuff4=0x0
+I (4266) NFC4_LIB: nfc4_check_for_received_interrupts() ./main/nfc4.c:1173 FINAL STATUS: 16392 
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (4286) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x8
+nfc4_get_irq_pin ./main/nfc4.c:1293 IRQ LEVEL: 0 
+W (4296) NFC4_LIB: nfc4_get_interrupt() ./main/nfc4.c:1199 int_status & mask: 0x4000
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4c 
+SPI_READ => RX_DATA[1]: 0x2d 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 4 
+SPI_READ => TX_DATA[0]: 0x56 
+SPI_READ => RX_DATA[1]: 0x83 
+SPI_READ => RX_DATA[2]: 0xbf 
+SPI_READ => RX_DATA[3]: 0xf 
+SPI_READ => RX_DATA[4]: 0xfb 
+
+SPI_WRITE => TX_DATA[0]: 0x16 
+SPI_WRITE => TX_DATA[1]: 0x87 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x45 
+SPI_READ => RX_DATA[1]: 0x1 
+
+SPI_WRITE => TX_DATA[0]: 0x5 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+SPI_READ => TX LENGTH : 1 
+SPI_READ => RX LENGTH : 1 
+SPI_READ => TX_DATA[0]: 0x4a 
+SPI_READ => RX_DATA[1]: 0x80 
+
+SPI_WRITE => TX_DATA[0]: 0xa 
+SPI_WRITE => TX_DATA[1]: 0x0 
+
+E (4376) LOGGER: =============================================================================================
+E (4386) LOGGER: =============================================================================================
+E (4406) LOGGER: =============================================================================================
+E (4416) LOGGER: =============================================================================================
+E (4426) LOGGER: =============================================================================================
+E (4436) LOGGER: =============================================================================================
+E (4446) LOGGER: =============================================================================================
+E (4456) LOGGER: =============================================================================================
+E (4466) LOGGER: =============================================================================================
+E (4476) LOGGER: =============================================================================================
+E (4486) LOGGER: =============================================================================================
+E (4496) LOGGER: =============================================================================================
+E (4506) LOGGER: =============================================================================================
+E (4516) LOGGER: =============================================================================================
+E (4526) LOGGER: =============================================================================================

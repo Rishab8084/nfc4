@@ -1,0 +1,304 @@
+/* SPI Slave example, sender (uses SPI master driver)
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+#include <stdio.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <string.h>
+#include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "freertos/queue.h"
+#include "driver/spi_master.h"
+#include "driver/gpio.h"
+#include "esp_timer.h"
+#include "main.h"
+
+/*
+SPI sender (master) example.
+
+This example is supposed to work together with the SPI receiver. It uses the standard SPI pins (MISO, MOSI, SCLK, CS) to
+transmit data over in a full-duplex fashion, that is, while the master puts data on the MOSI pin, the slave puts its own
+data on the MISO pin.
+
+This example uses one extra pin: GPIO_HANDSHAKE is used as a handshake pin. The slave makes this pin high as soon as it is
+ready to receive/send data. This code connects this line to a GPIO interrupt which gives the rdySem semaphore. The main
+task waits for this semaphore to be given before queueing a transmission.
+*/
+
+/*
+Pins in use. The SPI Master can use the GPIO mux, so feel free to change these if needed.
+*/
+#define GPIO_HANDSHAKE 2
+// #define GPIO_MOSI 12
+// #define GPIO_MISO 13
+// #define GPIO_SCLK 15
+// #define GPIO_CS 14
+//  edited by subhajit
+#define GPIO_MISO 12
+#define GPIO_MOSI 13
+#define GPIO_SCLK 14
+#define GPIO_CS 15
+//**********************
+
+#define SENDER_HOST HSPI_HOST
+
+spi_device_handle_t handle;
+
+static QueueHandle_t rdySem;
+
+enum READ_TYPE
+{
+    REGISTER_SPACE_A = 1,
+    REGISTER_SPACE_B,
+    DIRECT_COMMAND
+};
+
+void printRegisterArr(char *TAG, uint8_t arr[], size_t length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        /* code */
+        printf("%s[%d]: 0x%x \n", TAG, i, arr[i]);
+    }
+    printf("\n");
+}
+
+static void IRAM_ATTR gpio_handshake_isr_handler(void *arg)
+{
+
+    ESP_LOGI("MAIN76", "Interupt Received");
+
+    static uint32_t lasthandshaketime_us;
+    uint32_t currtime_us = esp_timer_get_time();
+    uint32_t diff = currtime_us - lasthandshaketime_us;
+    if (diff < 1000)
+    {
+        return; // ignore everything <1ms after an earlier irq
+    }
+    lasthandshaketime_us = currtime_us;
+
+    // Give the semaphore.
+    BaseType_t mustYield = false;
+    xSemaphoreGiveFromISR(rdySem, &mustYield);
+    if (mustYield)
+    {
+        portYIELD_FROM_ISR();
+    }
+}
+
+esp_err_t SPIReadRegister(uint8_t reg, size_t length, uint8_t *data_out, enum READ_TYPE read_type)
+{
+    spi_transaction_t t;
+    memset(&t, 0, sizeof(t));
+
+    t.flags |= SPI_TRANS_USE_TXDATA | SPI_TRANS_USE_RXDATA;
+
+    t.length = length;
+    t.tx_buffer = NULL;
+
+    if (read_type == REGISTER_SPACE_B)
+    {
+        t.tx_data[0] = NFC4_CMD_SPACE_B_ACCESS;
+        t.tx_data[1] = (reg & ~NFC4_REG_SPACE_B_MASK) | NFC4_MODE_REG_READ;
+    }
+    else if (read_type == REGISTER_SPACE_B)
+    {
+        t.tx_data[0] = reg | NFC4_MODE_REG_READ;
+    }
+    else if (read_type == DIRECT_COMMAND)
+    {
+        t.tx_data[0] = reg | NFC4_MODE_DIRECT_COMMAND;
+    }
+    else
+    {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    t.rx_buffer = NULL;
+
+    // printRegisterArr("TX_DATA", t.tx_data, sizeof(t.tx_data));
+
+    spi_device_transmit(handle, &t);
+
+    // printRegisterArr("RX_DATA", t.rx_data, sizeof(t.rx_data));
+
+    memcpy(data_out, t.rx_data, length);
+
+    return ESP_OK;
+}
+
+esp_err_t SPIWriteRegister(uint8_t reg, size_t length, uint8_t data_to_write)
+{
+    spi_transaction_t t;
+    memset(&t, 0, sizeof(t));
+
+    t.flags |= SPI_TRANS_USE_TXDATA | SPI_TRANS_USE_RXDATA;
+
+    t.length = length;
+    t.tx_buffer = NULL;
+
+    t.tx_data[0] = reg;
+    t.tx_data[1] = data_to_write;
+
+    t.rx_buffer = NULL;
+
+    t.rx_buffer = NULL;
+    spi_device_transmit(handle, &t);
+
+    return ESP_OK;
+}
+
+esp_err_t sendDirectCommand(uint8_t reg, size_t length){
+    spi_transaction_t t;
+    memset(&t, 0, sizeof(t));
+
+    t.flags |= SPI_TRANS_USE_TXDATA;
+
+    t.length = length;
+    t.tx_buffer = NULL;
+
+    t.tx_data[0] = reg | NFC4_MODE_DIRECT_COMMAND;
+
+    t.rx_buffer = NULL;
+    t.rx_buffer = NULL;
+    spi_device_transmit(handle, &t);
+
+    return ESP_OK;
+}
+// Main application
+void app_main(void)
+{
+    esp_err_t ret;
+
+    // Configuration for the SPI bus
+    spi_bus_config_t buscfg = {
+        .mosi_io_num = GPIO_MOSI,
+        .miso_io_num = GPIO_MISO,
+        .sclk_io_num = GPIO_SCLK,
+        .quadwp_io_num = -1,
+        .quadhd_io_num = -1};
+
+    // Configuration for the SPI device on the other side of the bus
+    spi_device_interface_config_t devcfg = {
+        .command_bits = 0,
+        .address_bits = 0,
+        .dummy_bits = 0,
+        .clock_speed_hz = 100000,
+        .duty_cycle_pos = 128,
+        .mode = 1,
+        .spics_io_num = GPIO_CS,
+        .cs_ena_posttrans = 10,
+        .queue_size = 3};
+
+    // GPIO config for the handshake line.
+    gpio_config_t io_conf = {
+        .intr_type = GPIO_INTR_POSEDGE,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = 1,
+        .pin_bit_mask = (1 << GPIO_HANDSHAKE)};
+
+    // Create the semaphore.
+    rdySem = xSemaphoreCreateBinary();
+
+    // Set up handshake line interrupt.
+    gpio_config(&io_conf);
+    gpio_install_isr_service(0);
+    gpio_set_intr_type(GPIO_HANDSHAKE, GPIO_INTR_POSEDGE);
+    gpio_isr_handler_add(GPIO_HANDSHAKE, gpio_handshake_isr_handler, NULL);
+
+    // Initialize the SPI bus and add the device we want to send stuff to.
+    ret = spi_bus_initialize(SENDER_HOST, &buscfg, SPI_DMA_CH_AUTO);
+    assert(ret == ESP_OK);
+    ret = spi_bus_add_device(SENDER_HOST, &devcfg, &handle);
+    assert(ret == ESP_OK);
+
+    xSemaphoreGive(rdySem);
+
+    while (1)
+    {
+
+        sendDirectCommand(0xC0, 32);
+        sendDirectCommand(0xC0, 32);
+        sendDirectCommand(0xD6, 32);
+
+        // vTaskDelay(pdMS_TO_TICKS(4000));
+
+
+        // SPIWriteRegister(0x0D, 16, 0x6F);
+
+        // uint8_t received_data[2];
+        // SPIReadRegister(0x0D, 16, received_data, REGISTER_SPACE_A);
+        // printRegisterArr("MAIN_190: RX", received_data, sizeof(received_data));
+
+        // SPIWriteRegister(0x0D, 16, 0x79);
+
+        // uint8_t received_data2[2];
+        // SPIReadRegister(0x0D, 16, received_data2, REGISTER_SPACE_A);
+        // printRegisterArr("MAIN_190: RX", received_data2, sizeof(received_data2));
+
+        vTaskDelay(pdMS_TO_TICKS(10000));
+        return;
+    }
+
+    // Never reached.
+    ret = spi_bus_remove_device(handle);
+    assert(ret == ESP_OK);
+}
+
+
+
+esp_err_t spi_master_write_then_read(nfc4_t *ctx, uint8_t tx_buff[], uint8_t length, uint8_t *data_out, uint8_t len)
+{
+
+    spi_transaction_t t;
+    memset(&t, 0, sizeof(t));
+
+    t.flags |= SPI_TRANS_USE_TXDATA | SPI_TRANS_USE_RXDATA;
+    t.tx_buffer = NULL;
+
+    printf("\n");
+
+    printf("SPI_READ => TX Length: %d \n", length);
+    printf("SPI_READ => RX Length: %d \n", len);
+
+    t.length = 32;
+
+    for (int i = 0; i < length; i++)
+    {
+        printf("SPI_READ => TX_DATA[%d]: 0x%x \n", i, tx_buff[i]);
+        t.tx_data[i] = tx_buff[i];
+    }
+
+    t.rx_buffer = NULL;
+
+    spi_device_transmit(ctx->spi, &t);
+
+    // for (int i = 0; i < (length +len); i++)
+    // {
+    //     printf("SPI_READ => RX_DATA[%d]: 0x%x \n", i, t.rx_data[i]);
+    // }
+
+    uint8_t mydata[len];
+
+    int j = 0;
+    for (int i = length; i < (length + len); i++)
+    {
+        /* code */
+        mydata[j] = t.rx_data[i];
+        printf("SPI_READ => RXT_OUT[%d]: 0x%x \n", j, t.rx_data[i]);
+        j++;
+    }
+
+    printf("\n");
+
+    memcpy(data_out, mydata, sizeof(mydata));
+
+    return ESP_OK;
+}
